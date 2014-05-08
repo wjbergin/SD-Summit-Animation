@@ -79,7 +79,7 @@ class TweetController {
     
     for(int i=0; i <= tweetList.size() - 1; i++){
       SDTweet t = tweetList.get(i);
-      println(i + "  created:  " + t.createdAt + " " + t.name);
+      println(i + "  created:  " + t.createdAt + " " + t.tweet);
     }
     
 } // parseTweets
@@ -96,7 +96,8 @@ class TweetController {
             i++;
         }
         
-        commentstr1 = commentstr1.replace("&amp;", "&");
+        commentstr1 = commentstr1.replace("&amp;", "&")
+                                 .replace("\n", " ");
         
         return commentstr1;
     }

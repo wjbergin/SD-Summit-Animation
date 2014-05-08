@@ -21,8 +21,9 @@ class TweetThread extends Thread {
   
   //Base query URL and query
   String baseSearchURL = "https://api.twitter.com/1.1/search/tweets.json";
-  String search_query = "?q=-RT%23SDSummit";
-  String test_search = "?q=love";
+  String search_query = "?q=%23God";
+  /* String search_query = "?q=-RT%23SDSummit"; */
+  // String test_search = "?q=love";
   
   
   TweetThread(int w){
@@ -56,7 +57,7 @@ class TweetThread extends Thread {
   public void run ()
   {
     while (running){
-      System.out.println("reloading. . ."); 
+      System.out.println("Reloading . . ."); 
       check();
       // Ok, let's wait for however long we should wait
       try {
@@ -91,7 +92,7 @@ class TweetThread extends Thread {
     {
       String year = String.valueOf(year()); 
       String month = String.valueOf(month());
-      String day = String.valueOf(day());
+      String day = String.valueOf(day()-1);
       String today = year + "-" + month + "-" + day;
 
       // Query for tweets starting today
