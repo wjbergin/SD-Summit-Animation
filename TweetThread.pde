@@ -8,7 +8,7 @@ class TweetThread extends Thread {
   private int wait;
   private long since_id = 0;
   private long max_id = 0;
-  private int count = 10;
+  private int count = 50;
   public JSONArray tweets;
   
   OAuthService service;
@@ -21,8 +21,8 @@ class TweetThread extends Thread {
   
   //Base query URL and query
   String baseSearchURL = "https://api.twitter.com/1.1/search/tweets.json";
-  String search_query = "?q=%23God";
-  /* String search_query = "?q=-RT%23SDSummit"; */
+  /* String search_query = "?q=%23God"; */
+  String search_query = "?q=-RT%23SDSummit";
   // String test_search = "?q=love";
   
   

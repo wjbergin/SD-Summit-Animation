@@ -21,7 +21,6 @@ class SDTweet {
   
   //Parent
   TweetController controller;
- 
   
   SDTweet(TweetController _controller, String _profile_image_url, String _tweet, String _createdAt, String _name, long _id){
     profile_image_url = _profile_image_url;
@@ -62,7 +61,7 @@ class SDTweet {
       c = colors[2];
     } else {
       // Tweet is from external party
-      c = colors[5];
+      c = colors[2];
     }
     return c;
   }

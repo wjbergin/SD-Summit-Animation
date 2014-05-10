@@ -2,15 +2,11 @@ import controlP5.*;
 import de.looksgood.ani.*;
 import de.looksgood.ani.easing.*;
 
-//UI
-ControlP5 cp5;
-//ControlWindow controlWindow;
+ControlP5   cp5;
+PFont       openSansRegular;
+int         twitterInterval = 30000; // 30 seconds
+PImage logo; 
 
-PImage logo;
-PFont openSansRegular;
-
-// TODO: move
-int twitterInterval = 30000; // 60 seconds
 
 // SiriusDecisions brand colors -- RGB FORMULAS ARE OUTDATED
 color[] colors = {color(0, 51, 89),    // Dark Blue
@@ -36,7 +32,7 @@ TweetController tweetController;
 
 public void setup(){
   //size(displayWidth, displayHeight, P2D);
-  size(displayWidth, int(displayHeight * 0.3), P2D);
+  size(displayWidth, displayHeight, P2D);
   //frame.setBackground(new java.awt.Color(255,0,0));
   hint(ENABLE_STROKE_PURE);
   Ani.init(this);
@@ -55,7 +51,7 @@ public void setup(){
   
   // Logo
   logo = loadImage("summit-temp-logo.png");
-  logo.resize(400, 100);
+  logo.resize(0, int(height * .263888));
   
   initUI();
 }
@@ -81,7 +77,7 @@ public void keyPressed() {
 public void draw(){
   background(color(0, 35, 61));
   //logo.resize(int(logo.width * 0.25), int(logo.height * 0.25));
-  image(logo, int(width * 0.05), int(height * 0.1));
+  image(logo, int(width * .018939), int(height * .128787));
   
   
   if(tweetController.displayTweets)
@@ -131,12 +127,12 @@ void initUI() {
              .setPosition(width * 0.02, height * 0.02)
              .setSize(int(width * 0.20), int(height * 0.08))
              .setHandleSize(20)
-             .setRange(1,60)
+             .setRange(1,120)
              .setRangeValues(grid.minEnterDuration,grid.maxEnterDuration)
              // after the initialization we turn broadcast back on again
              .setBroadcast(true)
              .setMin(1)
-             .setMax(60);
+             .setMax(120);
 }
 
 void controlEvent(ControlEvent theControlEvent) {
