@@ -103,23 +103,30 @@ void initUI() {
 
   //cp5.addFrameRate().setInterval(10).setPosition(0, height * 0.2);
 
-  cp5.addSlider("FontSize")
+  cp5.addSlider("Font_Size")
      .setRange(int(height * 0.01), int(height * 0.10))
      .setValue(int(height * 0.03))
      .setPosition(width * 0.35, height * 0.02)
-     .setSize(int(width * 0.35), int(height * 0.08));
+     .setSize(int(width * 0.35), int(height * 0.05));
   
-  cp5.addSlider("TweetSpacing")
+  cp5.addSlider("Tweet_Spacing")
      .setRange(int(height * 0.01), int(height * 0.20))
      .setValue(15)
      .setPosition(width * 0.35, height * 0.13)
-     .setSize(int(width * 0.15), int(height * 0.08));
-     
-  cp5.addSlider("TweetDurationMS")
+     .setSize(int(width * 0.15), int(height * 0.05));
+
+  cp5.addSlider("Tweet_Duration_Sec")
      .setRange(5,60)
      .setValue(20)
      .setPosition(width * 0.35, height * 0.24)
-     .setSize(int(width * 0.15), int(height * 0.08));
+     .setSize(int(width * 0.15), int(height * 0.05));
+
+    cp5.addSlider("Tweet_Top_Margin")
+     .setRange(int(height * 0.05), int(height * 0.5))
+     .setValue(int(height * 0.1))
+     .setPosition(width * 0.35, height * 0.35)
+     .setSize(int(width * 0.15), int(height * 0.05));
+
   
   cp5.addRange("Triangle Entrance (in secs.)")
              // disable broadcasting since setRange and setRangeValues will trigger an event
@@ -145,15 +152,19 @@ void controlEvent(ControlEvent theControlEvent) {
   } 
 }
 
-void FontSize(float value){
+void Font_Size(float value){
     tweetController.set_font_size(int(value));  
     //println(tweetController.font_size());
   }
   
-void TweetDurationMS(float value){
+void Tweet_Duration_Sec(float value){
     tweetController.set_duration(int(value)*1000);
 }
 
-void TweetSpacing(float value){
+void Tweet_Spacing(float value){
     tweetController.set_spacing(value);
+}
+
+void Tweet_Top_Margin(float value){
+    tweetController.set_top_margin(value);
 }

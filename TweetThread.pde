@@ -21,9 +21,8 @@ class TweetThread extends Thread {
   
   //Base query URL and query
   String baseSearchURL = "https://api.twitter.com/1.1/search/tweets.json";
-  /* String search_query = "?q=%23God"; */
   String search_query = "?q=-RT%23SDSummit";
-  // String test_search = "?q=love";
+  // String test_search = "?q=<Query Term>";
   
   
   TweetThread(int w){

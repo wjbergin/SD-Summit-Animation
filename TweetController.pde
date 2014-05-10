@@ -126,6 +126,14 @@ class TweetController {
       spacing = value;
   }
 
+  public void set_top_margin(float value){
+      startY = value;
+  }
+    
+  public float top_margin(){
+      return startY;
+  }
+
   // Display tweets
   void draw(){
     
@@ -159,7 +167,6 @@ class TweetController {
       }
     
       
-
       // draw tweets
       if(tweetList.size() != 0)
       {
