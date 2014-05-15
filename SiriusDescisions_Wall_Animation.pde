@@ -31,8 +31,8 @@ GridController grid;
 TweetController tweetController;
 
 public void setup(){
+  size(displayWidth, int(displayHeight * 0.3), P2D);
   //size(displayWidth, displayHeight, P2D);
-  size(displayWidth, displayHeight, P2D);
   //frame.setBackground(new java.awt.Color(255,0,0));
   hint(ENABLE_STROKE_PURE);
   Ani.init(this);
