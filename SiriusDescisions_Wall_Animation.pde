@@ -5,7 +5,7 @@ import de.looksgood.ani.easing.*;
 ControlP5   cp5;
 PFont       openSansRegular;
 int         twitterInterval = 30000; // 30 seconds
-PImage logo; 
+//PImage logo; 
 
 
 // SiriusDecisions brand colors -- RGB FORMULAS ARE OUTDATED
@@ -31,9 +31,9 @@ GridController grid;
 TweetController tweetController;
 
 public void setup(){
-  size(displayWidth, displayHeight, P2D);
   //size(displayWidth, displayHeight, P2D);
-  //frame.setBackground(new java.awt.Color(255,0,0));
+  size(1280, 360, P2D);
+  frame.setBackground(new java.awt.Color(255,0,0));
   hint(ENABLE_STROKE_PURE);
   Ani.init(this);
   float triangleSize = height * 0.1;
@@ -50,8 +50,8 @@ public void setup(){
   textFont(openSansRegular);
   
   // Logo
-  logo = loadImage("summit-temp-logo.png");
-  logo.resize(0, int(height * .263888));
+  //logo = loadImage("summit-temp-logo.png");
+  //logo.resize(0, int(height * .263888));
   
   initUI();
 }
@@ -77,7 +77,7 @@ public void keyPressed() {
 public void draw(){
   background(color(0, 35, 61));
   //logo.resize(int(logo.width * 0.25), int(logo.height * 0.25));
-  image(logo, int(width * .018939), int(height * .128787));
+  //image(logo, int(width * .018939), int(height * .128787));
   
   
   if(tweetController.displayTweets)
@@ -88,6 +88,8 @@ public void draw(){
    for(int i=0; i< grid.triangles.size(); i++){
      grid.triangles.get(i).draw();
    }
+   
+   saveFrame("sd-frame-######.png");
 }
 
 
