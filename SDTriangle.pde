@@ -19,7 +19,7 @@ class SDTriangle {
     Ani      xAni;
     float    x;
     PApplet  pa;
-    AniSequence seq; 
+    AniSequence seq;
     PVector gridPosition;
 
 
@@ -59,21 +59,18 @@ void startAnimation(float randomPosition, float minDuration, float maxDuration){
       seq.add(Ani.to(this, random(minDuration, maxDuration), maxDuration + 2, "x", width * 1.1,  Ani.EXPO_IN_OUT, "onEnd:updateCounter"));
       seq.endSequence();
       // start the whole sequence
-      seq.start();  
+      seq.start();
 }
-      
+
 void updateCounter(){
-  
-  
+
+
   if(mFill){
     controller.currNumSolidTriangles--;
-    //println("Solid " + controller.currNumSolidTriangles);
   }else{
     controller.currNumStrokedTriangles--;
-    //println("Stroked: " + controller.currNumStrokedTriangles);
-
   }
-  
+
   if(controller.currNumSolidTriangles == 0 && controller.currNumStrokedTriangles == 0){
     controller.loopAni();
   }
@@ -86,19 +83,13 @@ int randomEvenNumber(int min, int max)
     return i;
 }
 
-/*
-void setEasing(){
-  mEasing = random(controller.easingMin, controller.easingMax);
-}
-*/
-
 void update(){
-      
+
     if( millis() > mStartTime && !mPaused )
     {
         mActive = true;
     }
-    
+
     // animate
     if( mActive && mDeltaDistance >= 1 ){
 
@@ -112,14 +103,12 @@ void update(){
         mDestination_x = width + 100;
         mDeltaDistance = mDestination_x - mOrigin.x;
     }
-   
-    
+
     if(millis() > mPauseEnd)
     {
         mActive = true;
-        //active = true;
     }
-   
+
     // Reset to initial position and pause
     if(x > width)
     {
@@ -127,7 +116,7 @@ void update(){
         x = startX;
         mStartTime = millis() + mLoopPause;
     }
-    
+
 }
 
 void draw(){
@@ -151,15 +140,12 @@ void draw(){
         triangle(x, mOrigin.y,
                  x + mSize, mOrigin.y + (mSize * 0.5f),
                  x, mOrigin.y + mSize);
-        
+
     } else {
         // Facing left
         triangle(x + mSize, mOrigin.y,
                  x, mOrigin.y + (mSize * 0.5f),
                  x + mSize, mOrigin.y + mSize);
+        }
     }
-    
-}
-
-
 }

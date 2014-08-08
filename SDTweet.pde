@@ -1,5 +1,5 @@
 class SDTweet {
-  
+
   // Tweet data
   String profile_image_url;
   String tweet;
@@ -10,18 +10,16 @@ class SDTweet {
   long id;
   boolean displayed = false;
   int start_time;
-  
+
   // Tweet formatting
   color textColor;
-  //int font_size = 10;
 
-  
   Point origin;
   float timeToDeath = 0;
-  
+
   //Parent
   TweetController controller;
-  
+
   SDTweet(TweetController _controller, String _profile_image_url, String _tweet, String _createdAt, String _name, long _id){
     profile_image_url = _profile_image_url;
     tweet = _tweet;
@@ -33,7 +31,7 @@ class SDTweet {
     origin = new Point(width/2, 20);
     tweetTextWithName = _tweet + " \u2013 " + _name;
   }
-  
+
  void transition_out(){
    Ani.to(this, 2, "x", width + 100, Ani.EXPO_OUT);
  }
@@ -42,25 +40,23 @@ class SDTweet {
     textFont(openSansRegular);
     textSize(controller.font_size());
     float tWidth = textWidth(tweetTextWithName);
-    //float tHeight = textAscent();
-    
+
     fill(textColor);
-    //fill(color(255,255,255));
     textAlign(RIGHT);
     text(tweetTextWithName, width - tWidth - 20, origin.y, tWidth, height * 0.2);
-  
-  } //draw
-  
+
+  }
+
   color tweetTextColor(String _name, String[] _employeeList){
     color c;
      if(name.equals("SiriusDecisions")){
-      // Tweet is from SiriusDecisions
+      // SiriusDecisions Tweet
       c = colors[3];
     } else if (inEmployeeList(_name, _employeeList)){
-      // Tweet is from an employee
+      // Employee Tweet
       c = colors[2];
     } else {
-      // Tweet is from external party
+      // Other tweets
       c = colors[2];
     }
     return c;
@@ -68,7 +64,7 @@ class SDTweet {
 
   boolean inEmployeeList(String _name, String[] _array){
     boolean result;
-    
+
     for(int i=0; i <= _array.length-1; i++){
       if(_array[i].equals(_name)){
         return true;
@@ -76,6 +72,4 @@ class SDTweet {
     }
     return false;
   }
-
-
 }
